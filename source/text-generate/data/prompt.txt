@@ -1,0 +1,6 @@
+' Generate a random, coherent text for a typing speed test in English.
+Length: 100-130 words.
+Subject: General knowledge, science, or technology.
+Constraints: Use standard punctuation, no special characters, no line breaks.
+IMPORTANT: Provide ONLY the text itself. Do not include titles, introductions, conclusions, or quotes. dont use numbers and punctuation marks even a period at the end!!
+, avoid abbreviations like TCPIP'
