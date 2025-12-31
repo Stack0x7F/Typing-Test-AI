@@ -1,7 +1,7 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
-from ..Validation.Text_valid import Text
+from ..Schemas.Text_valid import Text
 from pydantic import ValidationError
 
 load_dotenv()
@@ -15,7 +15,6 @@ client = OpenAI(
     api_key=api_key 
 )
 
-# Используем абсолютный путь для чтения файла данных, он всегда сработает
 current_dir = os.path.dirname(os.path.abspath(__file__))
 prompt_file_path = os.path.join(current_dir, '..', 'data', 'prompt.txt')
 
