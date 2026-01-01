@@ -30,7 +30,7 @@ class SpeedTestApp:
 
     async def main(self, page: ft.Page):
         self.page = page
-        self.page.title = "AI Typing Speed Test"
+        self.page.title = "Typing Speed Test AI"
         self.page.theme_mode = ft.ThemeMode.LIGHT
         self.page.window_width = 1000
         self.page.window_height = 800
