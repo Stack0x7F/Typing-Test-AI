@@ -1,1 +1,1 @@
-This is a mocked response that is long enough to pass validation tests locally without hitting the rate limit bebebebebe
+House apartment building room kitchen bathroom bedroom living room garage garden yard fence wall floor ceiling window door roof basement attic stairs elevator escalator corridor hallway entrance exit
