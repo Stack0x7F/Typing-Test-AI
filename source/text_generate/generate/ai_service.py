@@ -9,12 +9,11 @@ api_key = os.getenv('api_key')
 
 #Если кончились токены (True)
 USE_MOCK_API = False 
-MOCK_TEXT = random_mock_text()
 
 
-#models
 deepseek = 'deepseek/deepseek-r1-0528:free'
 qwen = 'qwen/qwen3-coder:free'
+llama = 'meta-llama/llama-3.3-70b-instruct:free'
 
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
@@ -29,7 +28,7 @@ with open(prompt_file_path, 'r', encoding='utf-8') as prompt_file:
 
 
 def generate_mock():
-    mock_response_text = MOCK_TEXT
+    mock_response_text = random_mock_text()
 
     valid_mock = Text(text=mock_response_text)
     return valid_mock.text
@@ -42,7 +41,7 @@ def generate_text():
 
     else:
         max_retries = 3
-        current_model = deepseek 
+        current_model = qwen 
 
         for attempt in range(max_retries):
             print(f"Попытка API запроса №{attempt + 1} с моделью {current_model}...")
@@ -81,5 +80,4 @@ def writing_text_to_file(generated_text_content):
     text_file_path = os.path.join(current_dir, '..', 'data', 'text.txt')
     with open(text_file_path, 'w', encoding='utf-8') as file_for_text:
         file_for_text.write(generated_text_content)
-        return 'status: ok'
-    
+        return 'status: ok' 

@@ -20,7 +20,48 @@ MOCK_TEXTS = [
     """House apartment building room kitchen bathroom bedroom living room garage garden yard fence wall floor ceiling window door roof basement attic stairs elevator escalator corridor hallway entrance exit""",
     
     """Car bus truck bike motorcycle train plane boat ship helicopter rocket submarine ambulance fire police taxi van tractor crane bulldozer excavator roller coaster bicycle scooter skateboard wagon cart""",
+    
+    """Forest river mountain valley desert ocean island beach cliff cave waterfall lake pond stream meadow field farm village city town capital country border bridge tunnel road highway path trail""",
+
+    """Sun moon star planet galaxy universe comet asteroid meteor orbit rotation eclipse gravity atmosphere vacuum space time dimension quantum particle wave spectrum radiation telescope satellite""",
+
+    """Heart lung brain stomach liver kidney blood bone muscle skin nerve cell tissue organ system pulse breath sweat tear saliva urine digestion metabolism health disease medicine vaccine""",
+
+    """Family friend enemy stranger neighbor guest host teacher student doctor nurse engineer artist musician actor writer director producer manager worker employee employer customer client""",
+
+    """Music song melody rhythm harmony note chord instrument orchestra band concert opera ballet dance theater cinema film television radio podcast album playlist singer composer lyrics""",
+
+    """Sport game match competition tournament league team player coach referee score goal point win lose draw medal trophy cup prize championship victory defeat practice training exercise""",
+
+    """Money cash coin currency wallet bank account credit debt loan interest tax price cost value profit loss salary wage income expense budget investment stock market economy trade""",
+
+    """History future present past ancient medieval modern contemporary era age century millennium timeline event revolution war peace treaty agreement conflict battle victory empire kingdom""",
+
+    """Science technology engineering mathematics physics chemistry biology geology astronomy medicine research experiment discovery invention innovation laboratory analysis data theory hypothesis""",
+
+    """Art painting sculpture drawing sketch photography architecture design fashion style color shape form texture pattern light shadow perspective composition masterpiece exhibition gallery""",
+
+    """Law justice court judge lawyer police crime punishment prison freedom right duty contract agreement property evidence testimony jury verdict sentence appeal constitution amendment""",
+
+    """Religion faith belief god spirit soul heaven hell angel devil prayer temple church mosque synagogue meditation ritual ceremony tradition myth legend prophet priest monk nun""",
+
+    """Education school university college classroom lesson homework exam test grade degree diploma certificate knowledge wisdom intelligence skill ability talent learning study research""",
+
+    """Animal bird fish insect reptile amphibian mammal predator prey species evolution habitat extinction conservation zoo wildlife pet domestic wild fur feather scale paw claw wing""",
+
+    """Emotion feeling love joy happiness sadness anger fear surprise disgust trust anticipation nostalgia jealousy envy pride shame guilt courage anxiety calm stress excitement pleasure""",
+
+    """Government president minister parliament congress senate election vote campaign policy democracy republic monarchy dictatorship administration department ministry office official citizen""",
+
+    """Communication language word sentence grammar alphabet letter speech conversation discussion argument debate presentation translation interpretation accent dialect slang idiom proverb""",
+
+    """Transportation travel journey trip tour vacation holiday adventure exploration discovery map guide direction location destination arrival departure luggage ticket passport visa""",
+
+    """Weather climate temperature humidity pressure wind rain snow hail storm thunder lightning hurricane tornado flood drought season forecast prediction cloud fog mist frost ice""",
+
+    """Business company corporation factory office industry market product service production manufacturing distribution sales marketing advertising brand logo customer competition quality"""
 ]
+
 
 
 def random_mock_text():

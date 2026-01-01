@@ -1,5 +1,6 @@
 import flet as ft
 import time
+import random
 
 class StatsTracker:
     def __init__(self):
@@ -27,6 +28,7 @@ class SpeedTestApp:
         self.current_idx = 0
         self.stats = StatsTracker()
         self.generate_new_text_callback = None 
+        self.load_mock_text_callback = None
 
     async def main(self, page: ft.Page):
         self.page = page
@@ -77,6 +79,13 @@ class SpeedTestApp:
             on_click=self.handle_generate_click
         )
 
+        self.mock_button = ft.ElevatedButton(
+            "Сменить тему текста",
+            icon=ft.Icons.CHANGE_CIRCLE,
+            style=ft.ButtonStyle(color=ft.Colors.WHITE, bgcolor=ft.Colors.BLUE_600, shape=ft.RoundedRectangleBorder(radius=10)),
+            on_click=self.handle_mock_click
+        )
+
         self.page.add(
             ft.Column([
                 ft.Text("Typing Speed Test", size=40, weight=ft.FontWeight.BOLD, color=ft.Colors.BLUE_900),
@@ -87,6 +96,7 @@ class SpeedTestApp:
                 self.input_field,
                 ft.Row([
                     self.gen_button,
+                    self.mock_button,
                     ft.IconButton(ft.Icons.REFRESH_ROUNDED, on_click=self.handle_reset, tooltip="Сбросить ввод"),
                 ], alignment=ft.MainAxisAlignment.CENTER),
                 ft.Row([self.wpm_card, self.acc_card, self.err_card], spacing=20)
@@ -114,6 +124,17 @@ class SpeedTestApp:
             self.update_ui()
             await self.generate_new_text_callback()
             self.gen_button.disabled = False
+            self.page.update()
+
+    async def handle_mock_click(self, e):
+        if self.load_mock_text_callback:
+            self.mock_button.disabled = True
+            self.input_field.disabled = True
+            self.loader.visible = True
+            self.text = ""
+            self.update_ui()
+            await self.load_mock_text_callback()
+            self.mock_button.disabled = False
             self.page.update()
 
     async def set_text(self, new_text):
@@ -156,7 +177,7 @@ class SpeedTestApp:
 
     def build_text_display(self):
         if not self.text:
-            return ft.Row([ft.ProgressRing(width=20, height=20, stroke_width=2), ft.Text(" Генерируем текст(это займет много времени)...")], alignment="center")
+            return ft.Row([ft.ProgressRing(width=20, height=20, stroke_width=2), ft.Text(" Генерируем текст...это займет немного(много) времени)")], alignment="center")
         return ft.Text(
             font_family="Roboto Mono",
             spans=[

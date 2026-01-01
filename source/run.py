@@ -17,14 +17,23 @@ async def start_app(page: ft.Page):
         loop = asyncio.get_running_loop()
         try:
             new_text = await loop.run_in_executor(None, generate_text)
-
             await loop.run_in_executor(None, lambda: writing_text_to_file(new_text))
             await app.set_text(new_text)
         except Exception as e:
             print(f"Ошибка при генерации: {e}")
-            generate_mock()
+            await trigger_mock()
+
+    async def trigger_mock():
+        loop = asyncio.get_running_loop()
+        try:
+            new_text = await loop.run_in_executor(None, generate_mock)
+            await loop.run_in_executor(None, lambda: writing_text_to_file(new_text))
+            await app.set_text(new_text)
+        except Exception as e:
+            print(f"Ошибка при загрузке mock текста: {e}")
 
     app.generate_new_text_callback = trigger_generation
+    app.load_mock_text_callback = trigger_mock
 
     await app.main(page)
 
