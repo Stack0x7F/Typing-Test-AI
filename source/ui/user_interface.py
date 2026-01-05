@@ -1,6 +1,6 @@
 import flet as ft
 import time
-import random
+
 
 class StatsTracker:
     def __init__(self):
@@ -13,10 +13,20 @@ class StatsTracker:
     def start(self):
         self.start_time = time.time()
 
-    def get_wpm(self, current_idx):
-        if not self.start_time: return 0
+    def get_wpm(self, current_idx, text=None):
+        if not self.start_time or current_idx == 0: 
+            return 0
+        
         elapsed = (time.time() - self.start_time) / 60
-        return (current_idx / 5) / elapsed if elapsed > 0 else 0
+        if elapsed <= 0: return 0
+
+        if text:
+            typed_part = text[:current_idx]
+            count = len(typed_part.split())
+        else:
+            count = current_idx / 5
+            
+        return count / elapsed
 
     def get_accuracy(self, current_idx):
         total = current_idx + self.errors
